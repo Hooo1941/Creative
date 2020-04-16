@@ -1,22 +1,21 @@
 <!--
  * @Date: 2020-04-16 00:26:28
  * @LastEditors: QiuJhao
- * @LastEditTime: 2020-04-16 18:59:12
+ * @LastEditTime: 2020-04-17 00:59:39
  -->
 <template>
-  <div class="container">
-    <el-tabs stretch="true">
+  <div class="container" >
+    <el-tabs stretch = "true">
       <el-tab-pane label="聊天">
-        <div class="top">
+        <div class="top" v-if="$store.state.token">
           <el-row>
             <el-input placeholder="请输入内容" v-model="input2" class="ss"></el-input>
             <el-button icon="el-icon-search" circle></el-button>
             <el-button icon="el-icon-plus" circle></el-button>
-          <!--
-		    <i style="font-size: 30px; font-weight: bold; text-align:center;vertical-align:middle;" class="el-icon-plus"></i>
-          -->
+            <img src="../static/2.png"/>
 		  </el-row>
         </div>
+		<p v-else>要查看聊天请先<a href="/login">登录</a></p>
       </el-tab-pane>
       <el-tab-pane label="好友">
         <div class="top">
@@ -24,9 +23,7 @@
             <el-input placeholder="请输入内容" v-model="input2" class="ss"></el-input>
             <el-button icon="el-icon-search" circle></el-button>
             <el-button icon="el-icon-plus" circle></el-button>
-          <!--
-		    <i style="font-size: 30px; font-weight: bold; text-align:center;vertical-align:middle;" class="el-icon-plus"></i>
-          -->
+			<img src="../static/1.png"/>
 		  </el-row>
         </div>
       </el-tab-pane>
@@ -34,6 +31,12 @@
 		  <Comment article_id="1"/>
 	  </el-tab-pane>
       <el-tab-pane label="校园">
+		  <div v-show = "show">
+		            <el-row>
+				你已经认证为武汉大学的学生了,看看校友在讨论什么吧。
+            <el-button icon="el-icon-close" @click="closetab" circle></el-button>
+			</el-row>
+			</div>
 		  <Comment article_id="2"/>
 	  </el-tab-pane>
     </el-tabs>
@@ -41,13 +44,27 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      input2: ""
-    };
-  }
-};
+import Comment from '../components/Comment.vue'
+    export default {
+        transition: 'bounce',
+        name: "desktopDescription",
+        components: {
+            Comment
+		},
+		data() {
+			return {
+show : true
+			}
+			
+		},
+		methods: {
+			closetab: function() {
+				return {
+			show : false
+			}
+			}
+		}
+}
 </script>
 <style>
 .ss {

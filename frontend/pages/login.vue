@@ -1,10 +1,11 @@
 <!--
  * @Date: 2020-04-16 13:45:02
  * @LastEditors: QiuJhao
- * @LastEditTime: 2020-04-16 18:36:50
+ * @LastEditTime: 2020-04-17 01:19:15
  -->
 <template>
     <div class="login">
+		<img src="../static/logo.png" style="width:80%;margin: 0px 40px;"/>
         <el-form :model="ruleForm" :rules="rules" label-width="80px" ref="ruleForm">
             <el-form-item label="用户名" prop="username">
                 <el-input v-model="ruleForm.username"></el-input>
@@ -17,6 +18,11 @@
                 <el-button @click="resetForm('ruleForm')">重置</el-button>
             </el-form-item>
         </el-form>
+		<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		
+		<el-button @click="gotoregister" type="warning">注册</el-button>
     </div>
 
 </template>
@@ -45,6 +51,9 @@
             };
         },
         methods: {
+			gotoregister() {
+				window.location.href = "/register";
+			},
             submitForm(formName) {
                 this.$refs[formName].validate((valid) => {
                     if (valid) {
@@ -77,8 +86,4 @@
 </script>
 
 <style scoped>
-    .login {
-        margin: 100px auto;
-        width: 80%;
-    }
 </style>

@@ -5,7 +5,7 @@
                 <el-input :rows="3"
                           autofocus="true"
                           maxlength="250"
-                          placeholder="写下你的评论"
+                          placeholder="写下你的想法"
                           resize="none"
                           show-word-limit
                           type="textarea"
@@ -14,7 +14,7 @@
             <el-form-item>
 
 
-                <el-button @click="submitComment" style="float: right" type="primary">提交评论</el-button>
+                <el-button @click="submitComment" style="float: right" type="primary">提交</el-button>
             </el-form-item>
         </el-form>
         <div class="comment" v-for="item in comments" v-if="$store.state.token">
@@ -64,7 +64,7 @@
             </div>
 
         </div>
-        <p v-else>要查看评论请先<a href="/login">登录</a></p>
+        <p v-else>要查看评论请先<a href="/desktop/login">登录</a></p>
     </div>
 </template>
 
@@ -140,6 +140,7 @@
         },
         created() {
             let aid = parseInt(this.article_id);
+            window.console.log("/comment/" + aid);
             // 获取所有评论
             axios.get("/comment/" + aid, {
                 //axios.get("/comment/" + 1, {

@@ -1,13 +1,13 @@
 <!--
  * @Date: 2020-04-16 00:26:28
  * @LastEditors: QiuJhao
- * @LastEditTime: 2020-04-16 09:05:37
+ * @LastEditTime: 2020-04-17 00:29:03
  -->
 <template>
   <div class="container">
-  <el-tabs type="border-card" stretch="true">
-  <el-tab-pane label="约伴"">约伴</el-tab-pane>
-  <el-tab-pane label="地图">地图</el-tab-pane>
+  <el-tabs stretch="true">
+  <el-tab-pane label="约伴"><img src="../static/3.png" style = "width:85%"/></el-tab-pane>
+  <el-tab-pane label="地图"><img src="../static/4.png" style = "width:85%"/></el-tab-pane>
   <el-tab-pane label="问学霸">问学霸</el-tab-pane>
 </el-tabs>
   </div>

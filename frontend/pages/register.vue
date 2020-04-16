@@ -1,7 +1,7 @@
 <!--
  * @Date: 2020-04-16 14:11:13
  * @LastEditors: QiuJhao
- * @LastEditTime: 2020-04-16 14:13:29
+ * @LastEditTime: 2020-04-16 23:19:23
  -->
 <template>
     <div class="register">
@@ -14,6 +14,26 @@
             </el-form-item>
             <el-form-item label="确认密码" prop="passwordConfirm">
                 <el-input autocomplete="off" type="password" v-model="ruleForm.passwordConfirm"></el-input>
+            </el-form-item>
+			<el-form-item label="性别" prop="sex">
+  <el-radio v-model="radio" label="1">男</el-radio>
+  <el-radio v-model="radio" label="2">女</el-radio>
+  </el-form-item>
+            <el-form-item label="学校" prop="school">
+                <el-input v-model="ruleForm.school"></el-input>
+            </el-form-item>
+			<el-form-item label="学号" prop="id">
+                <el-input v-model="ruleForm.id"></el-input>
+            </el-form-item>
+            <el-form-item label="入学时间" prop="time">
+				<el-select v-model="value" placeholder="请选择">
+    <el-option
+      v-for="item in options"
+      :key="item.value"
+      :label="item.label"
+      :value="item.value">
+    </el-option>
+  </el-select>
             </el-form-item>
             <el-form-item>
                 <el-button @click="submitForm('ruleForm')" type="primary">立即注册</el-button>
@@ -37,11 +57,30 @@
                 }
             };
             return {
+        options: [{
+          value: '选项1',
+          label: '2020'
+        }, {
+          value: '选项2',
+          label: '2019'
+        }, {
+          value: '选项3',
+          label: '2018'
+        }, {
+          value: '选项4',
+          label: '2017'
+        }, {
+          value: '选项5',
+          label: '2016'
+        }],
+        value: '2020'
+      ,
                 ruleForm: {
                     username: '',
                     password: '',
                     passwordConfirm: ''
-                },
+				},
+				radio: '1',
                 rules: {
                     username: [
                         {required: true, message: '请输入用户名', trigger: 'blur'},
@@ -72,7 +111,7 @@
                             if (rep.data.status === 200) {
                                 this.$message.success("注册成功");
                                 setInterval(() => {
-                                    location.href = "/desktop/login"
+                                    location.href = "/login"
                                 }, 1000)
                             } else if (rep.data.status === 40002) {
                                 this.$message.error("用户名已被注册")
