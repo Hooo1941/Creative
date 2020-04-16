@@ -1,7 +1,7 @@
 /*
  * @Date: 2020-04-16 00:14:23
  * @LastEditors: QiuJhao
- * @LastEditTime: 2020-04-16 00:35:50
+ * @LastEditTime: 2020-04-16 15:21:40
  */
 
 export default {
@@ -42,7 +42,9 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/element-ui'
+	'@/plugins/element-ui',
+	  '@/plugins/axios',
+	  '@/plugins/persistedstate',
   ],
   /*
   ** Nuxt.js dev-modules
@@ -64,5 +66,8 @@ export default {
     */
     extend (config, ctx) {
     }
-  }
+  },
+      env: {
+		baseUrl: process.env.BASE_URL || 'http://localhost:3000'
+	},
 }

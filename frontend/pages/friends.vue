@@ -1,7 +1,7 @@
 <!--
  * @Date: 2020-04-16 00:26:28
  * @LastEditors: QiuJhao
- * @LastEditTime: 2020-04-16 14:06:14
+ * @LastEditTime: 2020-04-16 18:59:12
  -->
 <template>
   <div class="container">
@@ -31,10 +31,10 @@
         </div>
       </el-tab-pane>
       <el-tab-pane label="圈子">
-
+		  <Comment article_id="1"/>
 	  </el-tab-pane>
       <el-tab-pane label="校园">
-		  
+		  <Comment article_id="2"/>
 	  </el-tab-pane>
     </el-tabs>
   </div>

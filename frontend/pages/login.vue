@@ -1,7 +1,7 @@
 <!--
  * @Date: 2020-04-16 13:45:02
  * @LastEditors: QiuJhao
- * @LastEditTime: 2020-04-16 14:08:20
+ * @LastEditTime: 2020-04-16 18:36:50
  -->
 <template>
     <div class="login">
@@ -54,9 +54,10 @@
                         }).then(rep => {
                             console.log(rep);
                             if (rep.data.status === 200) {
-                                const token = rep.data.data.token;
+								const token = rep.data.data.token;
                                 this.$store.commit('setToken', token);
-                                Cookies.set('token', token, {expires: 30});
+								Cookies.set('token', token, {expires: 30});
+								Cookies.set('name', this.ruleForm.username, {expires: 30});
                                 location.href = "/friends"
                             } else {
                                 this.$message.error("用户名或密码不正确")
