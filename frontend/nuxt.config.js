@@ -1,7 +1,7 @@
 /*
  * @Date: 2020-04-16 10:15:06
  * @LastEditors: QiuJhao
- * @LastEditTime: 2020-04-16 22:33:40
+ * @LastEditTime: 2020-08-25 18:33:27
  */
 export default {
     mode: 'universal',
@@ -73,6 +73,6 @@ export default {
         },
     },
     env: {
-        baseUrl: process.env.BASE_URL || 'http://localhost:3000'
+        baseUrl: process.env.BASE_URL || 'http://localhost:3333'
     },
 }
